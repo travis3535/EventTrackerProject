@@ -10,4 +10,7 @@ public interface FormulaOneService {
 
 	List<FormulaOne> listAll();
 	
+	FormulaOne addEntry(FormulaOne f1);
+	boolean deleteEntry(Integer id);
+	
 }

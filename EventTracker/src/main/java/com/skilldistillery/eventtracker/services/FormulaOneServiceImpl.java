@@ -1,6 +1,7 @@
 package com.skilldistillery.eventtracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,23 @@ public class FormulaOneServiceImpl implements FormulaOneService {
 	public List<FormulaOne> listAll() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
+	}
+
+	@Override
+	public FormulaOne addEntry(FormulaOne f1) {
+		f1 = repo.saveAndFlush(f1);
+		return f1;
+	}
+
+	@Override
+	public boolean deleteEntry(Integer id) {
+		boolean deleted = false;
+		Optional<FormulaOne> f1 = repo.findById(id);
+		if (f1 != null) {
+			repo.deleteById(id);
+			deleted = true;
+		}
+		return deleted;
 	}
 
 }
