@@ -40,4 +40,14 @@ public class FormulaOneServiceImpl implements FormulaOneService {
 		return deleted;
 	}
 
+	@Override
+	public FormulaOne updateEntry(FormulaOne f1, Integer id) {
+		Optional<FormulaOne> optF1 = repo.findById(id);
+		if (optF1.isPresent()) {
+			f1.setId(id);
+			repo.saveAndFlush(f1);
+		}
+		return f1;
+	}
+
 }
