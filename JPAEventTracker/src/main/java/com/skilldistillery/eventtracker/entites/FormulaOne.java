@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="f1")
 public class FormulaOne {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +27,8 @@ public class FormulaOne {
 	private Integer startingPosition;
 	private String time;
 	private String points;
+	
+	
 	public Integer getId() {
 		return id;
 	}
