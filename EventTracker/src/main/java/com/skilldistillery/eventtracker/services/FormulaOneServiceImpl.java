@@ -50,4 +50,15 @@ public class FormulaOneServiceImpl implements FormulaOneService {
 		return f1;
 	}
 
+	@Override
+	public FormulaOne findById(Integer id) {
+		FormulaOne f1 = null;
+		Optional<FormulaOne> findF1 = repo.findById(id);
+		if (findF1.isPresent()) {
+			f1 = findF1.get();
+		}
+		
+		return f1;
+	}
+
 }

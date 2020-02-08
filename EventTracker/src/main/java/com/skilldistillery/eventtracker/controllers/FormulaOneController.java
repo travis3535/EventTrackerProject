@@ -65,5 +65,15 @@ public class FormulaOneController {
 		return svc.updateEntry(f1, id);
 		
 	}
+	
+	@GetMapping("results/{id}")
+	public FormulaOne EntryById(@PathVariable("id") Integer id, HttpServletResponse resp) {
+		FormulaOne f1 = svc.findById(id);
+		if (f1 == null) {
+			resp.setStatus(204);
+		}
+		
+		return svc.findById(id);
+	}
 
 }
