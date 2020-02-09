@@ -58,6 +58,18 @@ INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting
 INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (7, '2019', 'Canadian Grand Prix', 'Lewis Hamilton', 'Mercedes', 70, 2, '1:29:07.084', '25');
 INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (8, '2019', 'French Grand Prix', 'Lewis Hamilton', 'Mercedes', 53, 1, '1:24:31.198', '25');
 INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (9, '2019', 'Austrian Grand Prix', 'Max Verstappen', 'Red Bull', 71, 2, '1:22:01.822', '26');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (10, '2019', 'British Grand Prix', 'Lewis Hamilton', 'Mercedes', 52, 2, '1:21:08.452', '26');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (11, '2019', 'German Grand Prix', 'Max Verstappen', 'Red Bull', 64, 2, '1:44:31.275', '26');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (12, '2019', 'Hungarian Grand Prix', 'Lewis Hamilton', 'Mercedes', 70, 3, '1:35:03.796', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (13, '2019', 'Belgian Grand Prix', 'Charles Leclerc', 'Ferrari', 44, 1, '1:23:45.710', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (14, '2019', 'Italian Grand Prix', 'Charles Leclerc', 'Ferrari', 53, 1, '1:15:26.665', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (15, '2019', 'Singapore Grand Prix', 'Sebastian Vettel', 'Ferrari', 61, 3, '1:58:33.667', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (16, '2019', 'Russian Grand Prix', 'Lewis Hamilton', 'Mercedes', 53, 2, '1:33:38.992', '26');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (17, '2019', 'Japanese Grand Prix', 'Valtteri Bottas', 'Mercedes', 52, 3, '1:21:46.755', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (18, '2019', 'Mexican Grand Prix', 'Lewis Hamilton', 'Mercedes', 71, 3, '1:36:48.904', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (19, '2019', 'United States Grand Prix', 'Valtteri Bottas', 'Mercedes', 56, 1, '1:33:55.653', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (20, '2019', 'Brazilian Grand Prix', 'Max Verstappen', 'Red Bull', 71, 1, '1:33:14.678', '25');
+INSERT INTO `f1` (`id`, `year`, `grandprix`, `driver`, `team`, `laps`, `starting_position`, `time`, `points`) VALUES (21, '2019', 'Abu Dhabi Grand Prix', 'Lewis Hamilton', 'Mercedes', 55, 1, '1:34:05.715', '26');
 
 COMMIT;
 
