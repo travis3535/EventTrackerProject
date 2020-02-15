@@ -13,6 +13,7 @@ function init() {
 	    var f1Id = document.f1Form.f1Id.value;
 	    if (!isNaN(f1Id) && f1Id > 0) {
 	    	getResultById(f1Id);
+	    	displayF1(f1);
 	    }
 	  });
 	  
@@ -127,6 +128,16 @@ function createF1(f1) {
 	
 }
 
+function getDetail(f1) {
+	var xhr = new HMLHttpRequest();
+	var filterString = "api/results/" + f1Id;
+	xhr.open('GET', filterString, true );
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			displayF1(f1);
+		}
+	}
+}
 
 
 
