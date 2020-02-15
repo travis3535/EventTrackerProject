@@ -139,6 +139,14 @@ function getDetail(f1) {
 	}
 }
 
+// function f1Detail(f1){
+// 	let f1DetailDiv = document.getElementById('f1DetailDiv');
+// 	f1DetailDiv.textContent = '';
+
+// 	let h1Title = document.createElement('h1');
+// 	h1Title.textContent = f1.grandPrix;
+// 	f1DetailDiv.appendChild(h1Title);
+// }
 
 
 
@@ -232,7 +240,7 @@ function createHead(tableBody) {
 function createRow(f1) {
 	var newRow = document.createElement('tr');
 	newRow.addEventListener('click', function(e) {
-		displayResult(f1.id);
+		displayResult(f1);
 	});
 	for(var variable in f1){
 
@@ -260,6 +268,49 @@ function createRow(f1) {
 
 function displayResult(f1) {
 	
+	let f1DetailDiv = document.getElementById('f1DetailDiv');
+	f1DetailDiv.textContent = '';
+
+	let h1Title = document.createElement('h1');
+	h1Title.textContent = f1.grandPrix + " (" + f1.year + ") ";
+	f1DetailDiv.appendChild(h1Title);
+	
+	
+	
+	
+	let h4Driver = document.createElement('h4');
+	h4Driver.textContent = "Driver: " +f1.driver;
+	f1DetailDiv.appendChild(h4Driver);
+	
+	let h4Team = document.createElement('h4');
+	h4Team.textContent = "Team: " +f1.team;
+	f1DetailDiv.appendChild(h4Team);
+	
+	let h5Laps = document.createElement('h4');
+	h5Laps.textContent = "Laps: " +f1.laps;
+	f1DetailDiv.appendChild(h5Laps);
+	
+	let h4Start = document.createElement('h4');
+	h4Start.textContent = "Starting Pos: " +f1.startingPosition;
+	f1DetailDiv.appendChild(h4Start);
+	
+	let h4Time = document.createElement('h4');
+	h4Time.textContent = "Total Time: " +f1.time;
+	f1DetailDiv.appendChild(h4Time);
+	
+	let h4Points = document.createElement('h4');
+	h4Points.textContent = "Points: " +f1.points;
+	f1DetailDiv.appendChild(h4Points);
+	
+	
+	let btnBack = document.createElement('button');
+	btnBack.textContent = "Back";
+	
+	btnBack.addEventListener('click', function(e){
+		f1DetailDiv.textContent = '';
+	});
+	
+	f1DetailDiv.appendChild(btnBack);
 	
 	
 }
