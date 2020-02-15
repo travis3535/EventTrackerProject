@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formula One Database</title>
+</head>
+<body>
+<h1>Welcome to the Formula One Database </h1>
+<form name="f1Form">
+    <input type="number" name="f1Id">
+    <button name="lookup">Find by ID</button>
+  </form>
+  <br>
+  <br>
+  
+  <form name="createForm">
+  <label for="year">Year:</label>
+  <input type="text" name="year"><br>
+  
+  <label for="gp">Grand Prix:</label>
+  <input type="text" name="gp"><br>
+  
+  <label for="driver">Driver:</label>
+  <input type="text" name="driver"><br>
+  
+  <label for="team">Team:</label>
+  <input type="text" name="team"><br>
+  
+  <label for="laps">Laps:</label>
+  <input type="number" name="laps"><br>
+  
+  <label for="start">Starting Pos:</label>
+  <input type="number" name="start"><br>
+  
+  <label for="time">Total Time:</label>
+  <input type="text" name="time"><br>
+  
+  <label for="points">Points:</label>
+  <input type="text" name="points"><br>
+  
+  <button name ="create">Create Entry</button>
+  
+  
+  <br>
+  
+  </form>
+	<div id="output">
+    	<div id="resultData"></div>
+    	
+  </div>
+
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>

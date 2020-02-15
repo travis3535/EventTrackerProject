@@ -42,6 +42,11 @@ public class FormulaOneController {
 	public FormulaOne addEntry(@RequestBody FormulaOne f1, HttpServletRequest req, HttpServletResponse resp) {
 		f1 = svc.addEntry(f1);
 		resp.setStatus(201);
+		StringBuffer url = req.getRequestURL();
+		url.append("/").append(f1.getId());
+		String location = url.toString();
+		resp.setHeader("Location", location);
+		
 		
 		return f1;
 		
