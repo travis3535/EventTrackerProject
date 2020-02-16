@@ -143,7 +143,7 @@ function getDetail(f1) {
 
 function updateF1(f1) {
 	var xhr = new XMLHttpRequest();
-	var filterString = "api/results/" + f1.Id;
+	var filterString = "api/results/" + f1.id;
 	xhr.open('PUT', filterString, true );
 	xhr.setRequestHeader("Content-type", "application/json");
 	
@@ -152,13 +152,15 @@ function updateF1(f1) {
 		if(xhr.status === 4){
 			if (xhr.status === 200 || xhr.status === 201) {
 				var response = xhr.responseText;
-				let f1 = JSON.parse(response);
+				var f1 = JSON.parse(response);
 				
 			}
 		}
 	}
 	var json = JSON.stringify(f1);
 	xhr.send(json);
+	
+	location.reload(false);
 	
 }
 
@@ -340,14 +342,7 @@ function displayResult(f1) {
 	f1DetailDiv.appendChild(h4Points);
 	
 	
-	let btnBack = document.createElement('button');
-	btnBack.textContent = "Back";
 	
-	btnBack.addEventListener('click', function(e){
-		f1DetailDiv.textContent = '';
-		
-		
-	});
 	
 	let btnDelete = document.createElement('button');
 	btnDelete.textContent = 'Delete';
@@ -359,10 +354,212 @@ function displayResult(f1) {
 	
 	});
 	
+	let btnEdit = document.createElement('button');
+	btnEdit.textContent = 'Edit';
+	
+	btnEdit.addEventListener('click', function(e){
+		e.preventDefault();
+		var cForm = document.getElementById('createFormId');
+		cForm.setAttribute('hidden', true);
+		showEdit(f1);
+		console.log(f1);
+		
+
+	});
+	
+	let btnBack = document.createElement('button');
+	btnBack.textContent = "Back";
+	
+	btnBack.addEventListener('click', function(e){
+		f1DetailDiv.textContent = '';
+		
+		var cHidden = document.getElementById('createFormId');
+		cHidden.removeAttribute('hidden');
+		
+	});
+	
 	
 	f1DetailDiv.appendChild(btnBack);
+	f1DetailDiv.appendChild(btnEdit);
 	f1DetailDiv.appendChild(btnDelete);
 	
+	
+}
+
+function showEdit(f1) {
+	
+	
+	editForm = document.createElement('form');
+	editForm.setAttribute('name', 'editForm');
+	editForm.setAttribute('id', 'editForm');
+	
+	var hiddenId = document.createElement('input');
+	hiddenId.setAttribute('type', 'hidden');
+	hiddenId.setAttribute('value', f1.id);
+	hiddenId.setAttribute('name','hiddenId');
+	editForm.appendChild(hiddenId);
+	
+	//YEAR
+	var label = document.createElement('label');
+	label.textContent = 'Year: ';
+	editForm.appendChild(label);
+	
+	var yearBox = document.createElement('input');
+	yearBox.setAttribute('type', 'text');
+	yearBox.setAttribute('value', f1.year);
+	yearBox.setAttribute('name', 'yearBox');
+	editForm.appendChild(yearBox);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//GRAND PRIX
+	
+	var label = document.createElement('label');
+	label.textContent = 'Grand Prix: ';
+	editForm.appendChild(label);
+	
+	var gpLabel = document.createElement('input');
+	gpLabel.setAttribute('type', 'text');
+	gpLabel.setAttribute('value', f1.grandPrix);
+	gpLabel.setAttribute('name', 'gpLabel');
+	editForm.appendChild(gpLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//DRIVER
+	
+	var label = document.createElement('label');
+	label.textContent = 'Driver: ';
+	editForm.appendChild(label);
+	
+	var driverLabel = document.createElement('input');
+	driverLabel.setAttribute('type', 'text');
+	driverLabel.setAttribute('value', f1.driver);
+	driverLabel.setAttribute('name', 'driverLabel');
+	editForm.appendChild(driverLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//TEAM
+	var label = document.createElement('label');
+	label.textContent = 'Team: ';
+	editForm.appendChild(label);
+	
+	var teamLabel = document.createElement('input');
+	teamLabel.setAttribute('type', 'text');
+	teamLabel.setAttribute('value', f1.team);
+	teamLabel.setAttribute('name', 'teamLabel');
+	editForm.appendChild(teamLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//LAPS
+	
+	var label = document.createElement('label');
+	label.textContent = 'Laps: ';
+	editForm.appendChild(label);
+	
+	var lapsLabel = document.createElement('input');
+	lapsLabel.setAttribute('type', 'number');
+	lapsLabel.setAttribute('value', f1.laps);
+	lapsLabel.setAttribute('name', 'lapsLabel');
+	editForm.appendChild(lapsLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	// STARTING POSITION
+	
+	var label = document.createElement('label');
+	label.textContent = 'Starting Position: ';
+	editForm.appendChild(label);
+	
+	var startLabel = document.createElement('input');
+	startLabel.setAttribute('type', 'text');
+	startLabel.setAttribute('value', f1.startingPosition);
+	startLabel.setAttribute('name', 'startLabel');
+	editForm.appendChild(startLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//TOTAL TIME
+	
+	var label = document.createElement('label');
+	label.textContent = 'Total Time: ';
+	editForm.appendChild(label);
+	
+	var timeLabel = document.createElement('input');
+	timeLabel.setAttribute('type', 'text');
+	timeLabel.setAttribute('value', f1.time);
+	timeLabel.setAttribute('name', 'timeLabel');
+	editForm.appendChild(timeLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	//POINTS
+	
+	var label = document.createElement('label');
+	label.textContent = 'Points: ';
+	editForm.appendChild(label);
+	
+	var pointsLabel = document.createElement('input');
+	pointsLabel.setAttribute('type', 'text');
+	pointsLabel.setAttribute('value', f1.points);
+	pointsLabel.setAttribute('name', 'pointsLabel');
+	editForm.appendChild(pointsLabel);
+	
+	var br = document.createElement('br');
+	editForm.appendChild(br);
+	
+	
+	let btnSubmit = document.createElement('button');
+	btnSubmit.textContent = 'Submit';
+	
+	btnSubmit.addEventListener('click', function(e){
+		e.preventDefault();
+		
+		if (typeof game !== 'undefined') {
+			hiddenId.setAttribute('value', f1.id);
+			yearBox.setAttribute('value', f1.year);
+			gpLabel.setAttribute('value', f1.grandPrix);
+			driverLabel.setAttribute('value', f1.driver);
+			teamLabel.setAttribute('value', f1.team);
+			lapsLabel.setAttribute('value', f1.laps);
+			startLabel.setAttribute('value', f1.startingPosition);
+			timeLabel.setAttribute('value', f1.time);
+			pointsLabel.setAttribute('value', f1.points);
+		}
+		
+		
+		var form = e.target.parentElement;
+		console.log(form);
+		var editF1 = {
+				id: `${form.hiddenId.value}`,
+				year: `${form.yearBox.value}`,
+				grandPrix: `${form.gpLabel.value}`,
+				driver: `${form.driverLabel.value}`,
+				team: `${form.teamLabel.value}`,
+				laps: `${form.lapsLabel.value}`,
+				startingPosition: `${form.startLabel.value}`,
+				time: `${form.timeLabel.value}`,
+				points: `${form.pointsLabel.value}`
+		}
+		
+		updateF1(editF1);
+		console.log(editF1);
+	
+	});
+	
+	
+	editForm.appendChild(btnSubmit)
+	
+	f1DetailDiv.appendChild(editForm);
 	
 }
 
