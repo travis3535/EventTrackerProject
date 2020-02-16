@@ -13,7 +13,7 @@ function init() {
 	    var f1Id = document.f1Form.f1Id.value;
 	    if (!isNaN(f1Id) && f1Id > 0) {
 	    	getResultById(f1Id);
-//	    	displayF1(f1Id);
+	    	
 	    }
 	  });
 	  
@@ -164,11 +164,7 @@ function updateF1(f1) {
 	
 }
 
-function updateForm(f1) {
-	let f1EditDiv = document.getElementById('editf1DetailDiv');
-	f1EditDiv.textContent = '';
 
-}
 
 
 function deleteF1(f1Id) {
@@ -187,7 +183,6 @@ function deleteF1(f1Id) {
 	location.reload(false);
 	
 }
-
 
 
 
@@ -252,6 +247,8 @@ function createHead(tableBody) {
 	tRow.appendChild(team);
 	
 	var laps = document.createElement('th');
+	laps.setAttribute('id', 'lapsId')
+	laps.setAttribute('class', 'lapsCount');
 	laps.textContent = 'Laps';
 	tRow.appendChild(laps);
 	
