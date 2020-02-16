@@ -13,7 +13,7 @@ function init() {
 	    var f1Id = document.f1Form.f1Id.value;
 	    if (!isNaN(f1Id) && f1Id > 0) {
 	    	getResultById(f1Id);
-	    	displayF1(f1);
+//	    	displayF1(f1Id);
 	    }
 	  });
 	  
@@ -129,8 +129,8 @@ function createF1(f1) {
 }
 
 function getDetail(f1) {
-	var xhr = new HMLHttpRequest();
-	var filterString = "api/results/" + f1Id;
+	var xhr = new XMLHttpRequest();
+	var filterString = "api/results/" + f1.Id;
 	xhr.open('GET', filterString, true );
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
@@ -139,15 +139,52 @@ function getDetail(f1) {
 	}
 }
 
-// function f1Detail(f1){
-// 	let f1DetailDiv = document.getElementById('f1DetailDiv');
-// 	f1DetailDiv.textContent = '';
+// UPDATE
 
-// 	let h1Title = document.createElement('h1');
-// 	h1Title.textContent = f1.grandPrix;
-// 	f1DetailDiv.appendChild(h1Title);
-// }
+function updateF1(f1) {
+	var xhr = new XMLHttpRequest();
+	var filterString = "api/results/" + f1.Id;
+	xhr.open('PUT', filterString, true );
+	xhr.setRequestHeader("Content-type", "application/json");
+	
+	xhr.onreadystatechange = function() {
+		console.log(xhr.readyState);
+		if(xhr.status === 4){
+			if (xhr.status === 200 || xhr.status === 201) {
+				var response = xhr.responseText;
+				let f1 = JSON.parse(response);
+				
+			}
+		}
+	}
+	var json = JSON.stringify(f1);
+	xhr.send(json);
+	
+}
 
+function updateForm(f1) {
+	let f1EditDiv = document.getElementById('editf1DetailDiv');
+	f1EditDiv.textContent = '';
+
+}
+
+
+function deleteF1(f1Id) {
+	var xhr = new XMLHttpRequest();
+	var filterString = "api/results/" +f1Id;
+	xhr.open('DELETE', filterString, true );
+	if(xhr.status === 4) {
+		if (xhr.status === 200 ) {
+			var response = xhr.responseText;
+			let f1 = JSON.parse(response);
+			
+		}
+	}
+	
+	xhr.send();
+	location.reload(false);
+	
+}
 
 
 
@@ -308,65 +345,25 @@ function displayResult(f1) {
 	
 	btnBack.addEventListener('click', function(e){
 		f1DetailDiv.textContent = '';
+		
+		
 	});
 	
+	let btnDelete = document.createElement('button');
+	btnDelete.textContent = 'Delete';
+	
+	btnDelete.addEventListener('click', function(e){
+		e.preventDefault();
+		
+		deleteF1(f1.id);
+	
+	});
+	
+	
 	f1DetailDiv.appendChild(btnBack);
+	f1DetailDiv.appendChild(btnDelete);
 	
 	
 }
-
-//var dataDiv = document.getElementById('resultData');
-//dataDiv.textContent = '';
-//
-//
-//
-//var idRow = document.createElement('tr');
-////tableBody.appendChild(idRow);
-//
-//var resultId = document.createElement('td');
-//resultId.textContent = f1.id;
-//idRow.appendChild(resultId);
-//
-//
-//
-//var resultYear = document.createElement('td');
-//resultYear.textContent = f1.year;
-//idRow.appendChild(resultYear);
-//
-//
-//
-//var resultGP = document.createElement('td');
-//resultGP.textContent = f1.grandPrix;
-//idRow.appendChild(resultGP);
-//
-//var resultDriver = document.createElement('td');
-//resultDriver.textContent = f1.driver;
-//idRow.appendChild(resultDriver);
-//
-//var resultTeam = document.createElement('td');
-//resultTeam.textContent = f1.team;
-//idRow.appendChild(resultTeam);
-//
-//var resultLaps = document.createElement('td');
-//resultLaps.textContent = f1.laps;
-//idRow.appendChild(resultLaps);
-//
-//var resultStart = document.createElement('td');
-//resultStart.textContent = f1.startingPosition;
-//idRow.appendChild(resultStart);
-//
-//var resultTime = document.createElement('td');
-//resultTime.textContent = f1.time;
-//idRow.appendChild(resultTime);
-//
-//var resultPoints = document.createElement('td');
-//resultPoints.textContent = f1.points;
-//idRow.appendChild(resultPoints);
-//
-//
-//
-//
-//table.appendChild(tableBody);
-//dataDiv.appendChild(table);
 
 
